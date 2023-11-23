@@ -10,9 +10,12 @@ def pulse(pin, high_time, low_time):
     Maak de pin pin_nr hoog, wacht high_time,
     maak de pin laag, en wacht nog low_time
     """
-
+    pin.value(1)
+    time.sleep(high_time)
+    pin.value(0)
+    time.sleep(low_time)
     # implementeer deze functie
 
 
 while True:
-    pulse(gpio_pin, 0.2, 0.2)
+    pulse(gpio_pin, 0.1, 0.1)
