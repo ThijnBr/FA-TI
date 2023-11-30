@@ -11,10 +11,14 @@ def pulse(pin, high_time, low_time):
     Maak de pin pin_nr hoog, wacht high_time,
     maak de pin laag, en wacht nog low_time
     """
-
-    # implementeer deze functie
-
+    pin.value(1)
+    time.sleep(high_time)
+    pin.value(0)
+    time.sleep(low_time)
 
 while True:
     adc_value = adc.read_u16()
+    low_time = adc_value/65000
+    high_time = adc_value/65000
+    pulse(led, high_time, low_time)
     time.sleep(0.01)

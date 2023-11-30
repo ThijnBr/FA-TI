@@ -21,9 +21,9 @@ def leds(value, delay):
 
 
 delay = 0.2
+
 while True:
-    leds(1, delay)
-    leds(2, delay)
-    leds(4, delay)
-    leds(8, delay)
-    leds(16, delay)
+    for x in range(0,5):
+        leds(2**x, delay)
+    for x in reversed(range(0,5)):
+        leds(2**x, delay)
