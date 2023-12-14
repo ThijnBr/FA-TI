@@ -1,12 +1,9 @@
-from machine import Pin
-import time
+from machine import Pin, PWM
+from time import sleep
 
-servo_pin = Pin(21, Pin.OUT)
+pwm = PWM(Pin(21))
 
-
-def pulse(delay1, delay2 ):
-    """ kopier hier je implementatie van de pulse functie """
-
+pwm.freq(50)
 
 def servo_pulse(position):
     """
@@ -20,6 +17,10 @@ def servo_pulse(position):
     Before this function is called,
     the gpio pin must be configured as output.
     """
+    pulse_width = 1000 + 80*position
+    pwm.duty_u16(pulse_width)
+    print(pulse_width)
+    sleep(0.2)
 
 while True:
     for i in range(0, 100, 1):

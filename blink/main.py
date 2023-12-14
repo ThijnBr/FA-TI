@@ -1,5 +1,6 @@
 from machine import Pin
 import time
+import network
 
 gpio_pin = Pin(20, Pin.OUT)
 
